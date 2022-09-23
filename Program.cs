@@ -66,6 +66,27 @@ public class Cuenta {
                     }
                 } 
             }
+        } else {
+            if(monto > this.monto - 5000) {
+                System.Console.WriteLine("No hay fondo suficiente");
+                return 0;
+            } else  {
+                if (tipo == TipoExtraccion.CajeroHumano)
+                {
+                    this.monto = this.monto - monto;
+                    return monto;
+                } else {
+                    if(monto <= 20000) {
+                        this.monto = this.monto - monto;
+                        return monto;
+                    } else {
+                        monto = 20000;
+                        this.monto = this.monto - monto;
+                        System.Console.WriteLine("Maximo de extraccion: $20.000");
+                        return monto;
+                    }
+                } 
+            }
         }
         
 
